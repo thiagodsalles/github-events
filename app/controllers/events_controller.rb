@@ -7,7 +7,7 @@ class EventsController < ApplicationController
                                except: :create
   
   def show
-    render json: @event, status: :ok
+    render json: @event.map { |event| {id: event.id, number: event.number, state: event.state, created_at: I18n.l(event.created_at), updated_at: I18n.l(event.updated_at) }}, status: :ok
   end
   
   def create
