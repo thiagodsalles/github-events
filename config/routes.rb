@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post '/issues/events' => 'events#create', as: :issue_events_create
+  get '/issues/:number/events' => 'events#show', as: :issue_events_show
 end
